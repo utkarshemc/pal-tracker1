@@ -1,3 +1,4 @@
+
 package test.pivotal.pal.trackerapi;
 
 import com.jayway.jsonpath.DocumentContext;
@@ -41,11 +42,11 @@ public class TimeEntryApiTest {
         assertThat(createJson.read("$.id", Long.class)).isGreaterThan(0);
         assertThat(createJson.read("$.projectId", Long.class)).isEqualTo(123L);
         assertThat(createJson.read("$.userId", Long.class)).isEqualTo(456L);
-        assertThat(createJson.read("$.date", String.class)).isEqualTo("2017-01-08");
         assertThat(createJson.read("$.hours", Long.class)).isEqualTo(8);
+        assertThat(createJson.read("$.date", String.class)).isEqualTo("2017-01-08");
     }
 
-    @Test
+   @Test
     public void testList() throws Exception {
         Long id = createTimeEntry();
 
@@ -64,7 +65,7 @@ public class TimeEntryApiTest {
         assertThat(readId).isEqualTo(id);
     }
 
-    @Test
+     @Test
     public void testRead() throws Exception {
         Long id = createTimeEntry();
 
@@ -124,3 +125,4 @@ public class TimeEntryApiTest {
         return response.getBody().getId();
     }
 }
+
